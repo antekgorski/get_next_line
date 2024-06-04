@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:18:55 by agorski           #+#    #+#             */
-/*   Updated: 2024/06/03 15:09:20 by agorski          ###   ########.fr       */
+/*   Updated: 2024/06/04 13:14:50 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static char	*read_to_buffer(char *buffer, int fd)
 		return (0);
 	bytes = 1;
 	while (bytes > 0 && !ft_strchr(buffer, '\n'))
-	// dlaczego to czyta tylko do znaku nowej lini?
 	{
 		bytes = read(fd, temp, BUFFER_SIZE);
 		if (bytes == -1)
@@ -46,11 +45,9 @@ static char	*load_to_line(char *buffer)
 	i = 0;
 	if (!buffer[i])
 		return (0);
-	// while (buffer[i] != '\n')
-	// 	i++;
 	while (buffer[i] && buffer[i] != '\n')
 	i++;
-	if (buffer[i] == '\0')
+	if (buffer[i] == '\n')
 		i++;
 	str = malloc(sizeof(char) * (i + 1));
 	if (!str)
@@ -73,7 +70,7 @@ char	*update_buffer(char *buffer)
 		return (0);
 	while (buffer[i] && buffer[i] != '\n')
 	i++;
-	while (buffer[i] != '\n')
+	if (buffer[i] == '\n')
 		i++;
 	if (!buffer[i])
 	{
@@ -105,7 +102,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-#include <stdio.h>
+ #include <stdio.h>
 
 int	main(void)
 {
