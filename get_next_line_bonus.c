@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:18:55 by agorski           #+#    #+#             */
-/*   Updated: 2024/06/04 15:16:19 by agorski          ###   ########.fr       */
+/*   Updated: 2024/06/04 16:28:37 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*read_to_buffer(char *buffer, int fd)
 {
@@ -90,16 +90,16 @@ char	*update_buffer(char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer;
+	static char	*buffer[4096];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (0);
-	buffer = read_to_buffer(buffer, fd);
-	if (!buffer)
+	buffer[fd] = read_to_buffer(buffer[fd], fd);
+	if (!buffer[fd])
 		return (0);
-	line = load_to_line(buffer);
-	buffer = update_buffer(buffer);
+	line = load_to_line(buffer[fd]);
+	buffer[fd] = update_buffer(buffer[fd]);
 	return (line);
 }
 
