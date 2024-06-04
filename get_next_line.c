@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:18:55 by agorski           #+#    #+#             */
-/*   Updated: 2024/06/04 13:14:50 by agorski          ###   ########.fr       */
+/*   Updated: 2024/06/04 14:36:35 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,22 +102,22 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
- #include <stdio.h>
+//  #include <stdio.h>
 
-int	main(void)
-{
-	char *str4 = 0;
-	int fd = open("test.txt", O_RDONLY);
-	for (int a = 0; a < 140; a++)
-	{
-		str4 = get_next_line(fd);
-		if (str4 == NULL)
-		{
-			printf("	NULL	\n");
-			break ;
-		}
-		printf("%s", str4);
-		free(str4);
-	}
-	close(fd);
-}
+// int	main(void)
+// {
+// 	char *str4 = 0;
+// 	int fd = open("test.txt", O_RDONLY);
+// 	for (int a = 0; a < 140; a++)
+// 	{
+// 		str4 = get_next_line(fd);
+// 		if (str4 == NULL)
+// 		{
+// 			printf("	NULL	\n");
+// 			break ;
+// 		}
+// 		printf("%s", str4);
+// 		free(str4);
+// 	}
+// 	close(fd);
+// }
