@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:18:46 by agorski           #+#    #+#             */
-/*   Updated: 2024/06/02 16:39:18 by agorski          ###   ########.fr       */
+/*   Updated: 2024/06/03 15:06:07 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char	ft_strchr(char *buffer, int c)
+char	*ft_strchr(char *buffer, int c)
 {
 	int	i;
 
 	i = 0;
 	if (!buffer)
 		return (0);
-	// if (c == '\0')
-	// 	return (buffer + ft_strlen(buffer));
+	if (c == '\0')
+		return (buffer + ft_strlen(buffer));
 	while (buffer[i])
 	{
 		if (buffer[i] == c)
@@ -58,19 +58,19 @@ char	*ft_strjoin(char *buffer, char *temp)
 	str = malloc(sizeof(char) * (ft_strlen(buffer) + ft_strlen(temp) + 1));
 	if (!str)
 		return (0);
-	// i = -1;
-	// j = 0;
-	// while (buff && buff[++i] != '\0')
-	// 	str[i] = buff[i];
-	// while (temp && temp[j] != '\0')
-	// 	str[i++] = temp[j++];
-	i = 0;
+	i = -1;
 	j = 0;
-	while (buffer[i] != '\0')
+	while (buffer && buffer[++i] != '\0')
 		str[i] = buffer[i];
-	i++;
-	while (temp[j] != '\0')
+	while (temp && temp[j] != '\0')
 		str[i++] = temp[j++];
+	// i = 0;
+	// j = 0;
+	// while (buffer[i] != '\0')
+	// 	str[i] = buffer[i];
+	// i++;
+	// while (temp[j] != '\0')
+	// 	str[i++] = temp[j++];
 	str[i] = '\0';
 	free(buffer);
 	return (str);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:18:59 by agorski           #+#    #+#             */
-/*   Updated: 2024/06/02 16:37:30 by agorski          ###   ########.fr       */
+/*   Updated: 2024/06/03 14:54:31 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # endif
 
 char	*get_next_line(int fd);
-char	ft_strchr(char *buffer, int c);
+char	*ft_strchr(char *buffer, int c);
 char	*ft_strjoin(char *buffer, char *temp);
 int		ft_strlen(char *str);
 
