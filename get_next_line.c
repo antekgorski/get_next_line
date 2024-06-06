@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:18:55 by agorski           #+#    #+#             */
-/*   Updated: 2024/06/04 15:16:19 by agorski          ###   ########.fr       */
+/*   Updated: 2024/06/06 09:30:07 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,22 +103,35 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-//  #include <stdio.h>
+// #include<stdio.h>
 
 // int	main(void)
 // {
-// 	char *str4 = 0;
-// 	int fd = open("test.txt", O_RDONLY);
-// 	for (int a = 0; a < 140; a++)
+// 	char	*line;
+// 	int		fd;
+// 	int		i;
+
+// 	i = 0;
+// 	fd = open("file.txt", O_RDONLY);
+// 	if (fd < 0)
 // 	{
-// 		str4 = get_next_line(fd);
-// 		if (str4 == NULL)
-// 		{
-// 			printf("	NULL	\n");
-// 			break ;
-// 		}
-// 		printf("%s", str4);
-// 		free(str4);
+// 		printf("Error opening file.\n");
+// 		return (1);
 // 	}
+// 	while((line = get_next_line(fd)) != NULL)
+// 	{
+// 		printf("%s", line);
+// 		free (line);
+// 	}
+// 	// while (i < 6)
+// 	// {
+// 	// 	line = get_next_line(fd);
+// 	// 	if (line == NULL)
+// 	// 		return (0);
+// 	// 	printf("%s", line);
+// 	// 	free(line);
+// 	// 	i++;
+// 	// }
 // 	close(fd);
+// 	return (0);
 // }
